@@ -10,7 +10,7 @@ public class HappyPet {
 		// 1. Ask the user what kind of pet they want to buy, and store their answer in a variable
 		String pet = JOptionPane.showInputDialog("What pet do you want to buy?");
 		// 7. REPEAT steps 3 - 6 enough times to make your pet happy!
-		for(int i = 0;i<6;i++) {
+		for(int i = 0;i<10;i++) {
 			// 3. Use showOptionDialog to ask the user what they want to do to make their pet happy
 			//    (eg: cuddle, food, water, take a walk, groom, clean up poop).
 			//    Make sure to customize the title and question too.
@@ -19,20 +19,27 @@ public class HappyPet {
 
 			// 5. Use user input to call the appropriate method created in step 4.
 			if (task == 0) {
-				
+				cuddle(pet);
 			}else if (task == 1) {
-				
+				walk(pet);
 			}else if (task == 2) {
-				
+				feed(pet);
 			}else if (task == 3) {
-				
+				destroy(pet);
 			}else if (task == 4) {
-				
+				groom(pet);
 			}else {
 				fetch(pet);
 			}
 			// 6. If you determine the happiness level is large enough, tell the
 			//    user that he loves his pet and use break; to exit for loop.
+			if(happinessLevel>=21) {
+				JOptionPane.showMessageDialog(null, "Congratulations! Your pet can tolerate you!");
+				break;
+			}
+		}
+		if(happinessLevel<21) {
+			JOptionPane.showMessageDialog(null, "I don't know how you managed this, but you're pretty bad with pets.");
 		}
 	}
 
@@ -41,23 +48,23 @@ public class HappyPet {
 	//    and INCREMENT the pet's happiness Level.
 	static void cuddle(String x) {
 		happinessLevel = happinessLevel + 2;
-		JOptionPane.showMessageDialog(null, "Your " + x + "now has a happiness level of" + happinessLevel + "!");
+		JOptionPane.showMessageDialog(null, "Your " + x + " now has a happiness level of " + happinessLevel + "!");
 	}static void walk(String x) {
 		happinessLevel = happinessLevel + 4;
-		JOptionPane.showMessageDialog(null, "Your " + x + "now has a happiness level of" + happinessLevel + "!");
+		JOptionPane.showMessageDialog(null, "Your " + x + " now has a happiness level of " + happinessLevel + "!");
 	}static void feed(String x) {
 		happinessLevel = happinessLevel + 5;
-		JOptionPane.showMessageDialog(null, "Your " + x + "now has a happiness level of" + happinessLevel + "!");
+		JOptionPane.showMessageDialog(null, "Your " + x + " now has a happiness level of " + happinessLevel + "!");
 	}static void destroy(String x) {
 		happinessLevel = 0;
 		JOptionPane.showMessageDialog(null, "Congratulations! Your " + x + "is dead! It has a happiness level of" + happinessLevel + "!");
 		System.exit(0);
 	}static void groom(String x) {
 		happinessLevel = happinessLevel + 3;
-		JOptionPane.showMessageDialog(null, "Your " + x + "now has a happiness level of" + happinessLevel + "!");
+		JOptionPane.showMessageDialog(null, "Your " + x + " now has a happiness level of " + happinessLevel + "!");
 	}static void fetch(String x) {
 		happinessLevel = happinessLevel + 4;
-		JOptionPane.showMessageDialog(null, "Your " + x + "now has a happiness level of" + happinessLevel + "!");
+		JOptionPane.showMessageDialog(null, "Your " + x + " now has a happiness level of " + happinessLevel + "!");
 	}
 	
 }
